@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>REGEX</title>
+    </head>
+    <body style="text-align: center;">
+        <h1>سلام به همه دانشجویان عزیز و برنامه‌نویسان حرفه‌ای آینده</h1>
+        <hr />
+
+        <script>
+            'use strict';
+
+            let text = "Salam khoobi? \nkhoobam \nkhoooob";
+            let pattern = RegExp("bi$", "gm");
+
+            function multiMatchReg(rex, text) {
+                let match;
+                let results = [];
+
+                while(match !== null) {
+                    match = rex.exec(text);
+
+                    if(match !== null) {
+                        results.push(match);
+                    }
+                }
+
+                return results;
+            }
+
+            console.log(multiMatchReg(pattern, text));
+        </script>
+    </body>
+</html>

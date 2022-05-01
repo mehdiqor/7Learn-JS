@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Test</title>
+</head>
+<body>
+    <h1>
+        Welcome to BMI Test
+    </h1>
+
+    <script>
+        function Person(namePerson, agePerson, weightPerson, heightPerson) {
+            this.name = namePerson;
+            this.age = agePerson;
+            this.weight = weightPerson;
+            this.height = heightPerson;
+            this.bmi = function() {
+                return this.weight / ((this.height / 100)**2);
+            }
+
+            this.print = function() {
+                let result =
+                `my name is ${this.name}
+                I'm ${this.age} years old
+                my BMI is ${this.bmi()}`;
+                
+                return result;
+            }
+        }
+
+        var p1 = new Person("mehdi", 25, 85, 182);
+        console.log(p1.print());
+    </script>
+</body>
+</html>

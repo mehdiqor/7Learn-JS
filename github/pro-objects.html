@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>اشیا  در جاوا اسکریپت</title>
+    </head>
+    <body style="text-align: center;">
+        <h1>سلام به همه دانشجویان عزیز و برنامه‌نویسان حرفه‌ای آینده</h1>
+        <hr />
+
+        <script>
+            'use strict';
+
+            let newObg = {
+                name: 'Mehdi',
+                family: 'Ghorbani',
+                get age() {
+                    return this.userAge;
+                },
+                set age(uAge) {
+                    if(uAge < 10) {
+                        throw new Error('acccess denied!');
+                    }
+                    this.userAge = uAge;
+                }
+            }
+
+            console.log(newObg);
+
+            newObg.age = 35;
+            console.log(newObg.age);
+
+            function secondObj() {
+                this.name = 'Ali';
+                this.family = 'mohamadi';
+
+                Object.defineProperties(this, {
+                    age: {
+                        function(){
+                            return this.userAge;
+                        },
+                        set: function(uAge) {
+                            if(uAge < 10) {
+                                throw new Error('acccess denied!');
+                            }
+
+                            this.userAge = uAge;
+
+                            console.log('in setter...')
+                        }
+                    }
+                })
+            }
+            let new2 = new secondObj();
+            new2.age = 45;
+
+            let copyN = {};
+            Object.assign(copyN, newObg, new2 );
+            copyN.name = "test name";
+            console.log(newObg);
+        </script>
+    </body>
+</html>

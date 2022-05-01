@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>آموزش استفاده از attribute ها در DOM در جاوا اسکریپت</title>
+    </head>
+    <body style="text-align: center;">
+        <h1>سلام به همه دانشجویان عزیز و برنامه‌نویسان حرفه‌ای آینده</h1>
+        <hr />
+
+        <div id="myDiv" class="test-calss" data-developer="Mehrdad">
+            <input type="checkbox" checked test="atr" />
+        </div>
+
+        <button onclick="getPlace()">یک لیست جدید ایجاد کن</button>
+        <div class="new-elements"></div>
+
+        <script>
+            'use strict';
+
+            let myDiv = document.getElementsByClassName('new-elements')[0];
+
+            let newElem1 = document.createElement('ul');
+            newElem1.className = "my-list";
+            newElem1.innerHTML = '<li id="first">اولین لیست</li>';
+            
+            myDiv.append(newElem1);
+
+            function creator(where) {
+                if(!(where in newElem1)) {
+                    alert('تابعی که انتخاب کردید اشتباه است و وجود ندارد');
+                    return;
+                }
+                 
+                let li = document.createElement('li');
+                li.innerHTML = "<strong>آیتم جدید</strong>";
+
+                newElem1[where](li);
+                
+                let liCopy = li.cloneNode(false);
+                console.log(liCopy);
+
+                setTimeout(function() {
+                    li.remove();
+                }, 2000);
+            }
+
+            function getPlace() {
+                let whereToAdd = prompt("where you want to add?");
+                creator(whereToAdd);
+            }
+            
+            let newDiv = document.createElement('div');
+            newDiv.appendChild(document.createElement('div'));
+            newDiv.appendChild(document.createTextNode('Hellllllllooo ...'));
+            document.body.append(newDiv);
+
+            let frag = document.createDocumentFragment();
+            frag.appendChild(document.createElement('div'));
+            frag.appendChild(document.createTextNode('Hellllllllooo ...'));
+            document.body.append(frag);
+
+        </script>
+    </body>
+</html>

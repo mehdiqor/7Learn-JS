@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>if / eslse if</title>
+    </head>
+    <body>
+        <h1>welcome!</h1>
+        <hr />
+
+        <div id="demo"></div>
+        <hr />
+
+        <script>
+
+            var UserName = prompt("Who's there?");
+
+            if (UserName == "Cancel" || UserName === "") {
+                alert("Canceled");
+            } else if (UserName == "Admin") {
+                var Admin = prompt("Password?");
+                Admin == "Cancel"
+                ? alert("Canceled")
+                : Admin == "TheMaster"
+                ? alert("Welcome!")
+                : alert("Wrong Password!");
+            } else {
+            alert("I don't know you!");
+            }
+
+        </script>
+    </body>
+</html>

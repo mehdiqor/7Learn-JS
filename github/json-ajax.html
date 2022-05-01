@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Json & AJAX</title>
+    </head>
+    <body style="text-align: center;">
+        <h1>سلام به همه دانشجویان عزیز و برنامه‌نویسان حرفه‌ای آینده</h1>
+        <hr />
+
+        <script>
+            'use strict';
+            
+            let test = {
+                name: 'Mehrdad',
+                family: 'Dadkhah'
+            }
+
+            let testArray = [1,5,9,8,7,5,50];
+
+            // console.log(test, JSON.stringify(test));
+            
+            let jsonA = JSON.stringify(testArray);
+
+            console.log(JSON.parse(jsonA));
+
+            let xhttp = new XMLHttpRequest();
+            xhttp.open('GET', 'https://api.mocki.io/v1/b043df5a');
+            xhttp.send();
+            
+            function processResult(result) {
+                result.forEach(function(element) {
+                    console.log(element);
+                });
+            }
+
+            let response;
+            xhttp.onreadystatechange = function() {
+                if(this.readyState == 4 && this.status == 200) {
+                    console.log('ajax was succeeded');
+                    
+                    response = JSON.parse(this.response);
+                    processResult(response);
+                }
+            }
+
+            let xpHttp = new XMLHttpRequest();
+            xpHttp.open('POST', 'https://api.mocki.io/v1/1d97d500');
+            xpHttp.setRequestHeader("Content-Type", "json");
+            xpHttp.send('name=mehrdad&family=dadkhah');
+
+            xpHttp.onreadystatechange = function() {
+                if(this.readyState == 4 && this.status == 200) {
+                    console.log(this.response);
+                    console.log(this.getAllResponseHeaders());
+                }
+            }
+
+        </script>
+    </body>
+</html>

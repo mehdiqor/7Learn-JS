@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>مدیریت خطا‌ها در جاوا اسکریپت</title>
+    </head>
+    <body style="text-align: center;">
+        <h1>سلام به همه دانشجویان عزیز و برنامه‌نویسان حرفه‌ای آینده</h1>
+        <hr />
+
+        <script>
+            'use strict';
+
+            let myList = [];
+            try {
+                console.log(myList.x.test);
+            } catch (e) {
+                console.dir(e);
+                // alert("there is an error!")
+            }
+            
+            alert("salam");
+
+            let usedRandoms = [];
+
+            function uniqueRandom() {
+                if(usedRandoms.length == 10) {
+                    let error = new Error("out of range! we don't have any number to return...");
+
+                    throw error;
+                }
+                let rnd = parseInt(Math.random() * 10);
+                if(usedRandoms.includes(rnd)) {
+                    console.log("we find duplicate random number! so we try again...");
+
+                    return uniqueRandom();
+                }
+                usedRandoms.push(rnd);
+
+                return rnd;
+            }
+
+            console.log(uniqueRandom());
+            console.log(uniqueRandom());
+            console.log(uniqueRandom());
+            console.log(uniqueRandom());
+            console.log(uniqueRandom());
+            console.log(uniqueRandom());
+            console.log(uniqueRandom());
+            console.log(uniqueRandom());
+            console.log(uniqueRandom());
+            console.log(uniqueRandom());
+            console.log(uniqueRandom());
+            console.log(uniqueRandom());
+        </script>
+    </body>
+</html>

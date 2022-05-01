@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>شی گرایی در جاوا اسکریپت</title>
+    </head>
+    <body style="text-align: center;">
+        <h1>سلام به همه دانشجویان عزیز و برنامه‌نویسان حرفه‌ای آینده</h1>
+        <hr />
+
+        <script>
+            'use strict';
+
+            class animal {
+                testData = "I am parent";
+
+                static myStaticData = "static...";
+
+                constructor(name){
+                    this.animalName = name;
+                }
+
+                walking() {
+                    console.log('walking...');
+                }
+                print() {
+                    console.log(animal.myStaticData);
+                }
+            }
+
+            let a1 = new animal();
+            let a2 = new animal();
+            a1.print();
+            a2.print();
+
+            // console.log(animal.myStaticData);
+            // let a1 = new animal();
+            // console.log(a1.myStaticData);
+
+            class rabbit extends animal {
+                testData = "I am child";
+
+                constructor(name, type) {
+                    super(name);
+                    this.typeName = type;
+                }
+
+                walking() {
+                    super.walking();
+                    // console.log('jumping...');
+                }
+            }
+
+            let rabbit1 = new rabbit('Niloo', 'type x');
+            // rabbit1.walking();
+            // console.log(rabbit1);
+
+
+        </script>
+    </body>
+</html>
